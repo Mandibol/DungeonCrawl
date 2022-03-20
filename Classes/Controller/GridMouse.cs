@@ -2,11 +2,15 @@
 using SFML.System;
 using SFML.Window;
 
-public class GridMouse : GameObject
+public class GridMouse
 {
-    public Vector2f gridPositionPrevious;
-    public int radie = 8;
-    public List<Vector2f> gridPositions = new List<Vector2f>();
+    public Sprite sprite = new();
+    public static int gridIndex;
+    public static Vector2f gridPosition;
+    public static Vector2f pixelPosition;
+    public static Vector2f gridPositionPrevious;
+    public static int radie = 3;
+    public static List<Vector2f> gridPositions = new List<Vector2f>();
     public static List<int> gridIndexes = new List<int>();
 
     public GridMouse()
@@ -15,7 +19,7 @@ public class GridMouse : GameObject
         sprite.Origin = new Vector2f(16, 0);
     }
 
-    public override void Update()
+    public void Update()
     {
         gridPosition = IsoMath.GridPositionFromPixelPosition(Game.Window.MapPixelToCoords(Mouse.GetPosition(Game.Window)));
         gridIndex = IsoMath.IndexFromGridPosition(gridPosition);
@@ -47,7 +51,7 @@ public class GridMouse : GameObject
         }
     }
 
-    public override void Draw()
+    public void Draw()
     {
 
         //MouseMarker

@@ -40,7 +40,6 @@ public class Renderer
         //MouseMarker
         Game.Controller.gridMouse.Draw();
 
-
         //Text
         Text text = new Text("", fnt, 8);
         text.FillColor = Color.White;

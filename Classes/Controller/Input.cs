@@ -16,10 +16,12 @@ public class Input
         switch (e.Code)
         {
             case Keyboard.Key.Add:
+                //Change direction and Rotate Arrays 90 degrees to the right
+                Game.Controller.rotation = (Rotation)((int)(Game.Controller.rotation + 1) % (int)Rotation.Length);
+                Game.Controller.staticArray = IsoMath.RotateRightLevelRight(Game.Controller.staticArray);
+                Game.Controller.objectArray = IsoMath.RotateRightLevelRight(Game.Controller.objectArray);
                 break;
             case Keyboard.Key.Subtract:
-                break;
-            case Keyboard.Key.Left:
                 //Change direction and Rotate Arrays 90 degrees to the left
                 Game.Controller.rotation -= 1;
                 if (Game.Controller.rotation < 0) Game.Controller.rotation += (int)Rotation.Length;
@@ -27,11 +29,9 @@ public class Input
                 Game.Controller.staticArray = IsoMath.RotateRightLevelLeft(Game.Controller.staticArray);
                 Game.Controller.objectArray = IsoMath.RotateRightLevelLeft(Game.Controller.objectArray);
                 break;
+            case Keyboard.Key.Left:
+                break;
             case Keyboard.Key.Right:
-                //Change direction and Rotate Arrays 90 degrees to the right
-                Game.Controller.rotation = (Rotation)((int)(Game.Controller.rotation + 1) % (int)Rotation.Length);
-                Game.Controller.staticArray = IsoMath.RotateRightLevelRight(Game.Controller.staticArray);
-                Game.Controller.objectArray = IsoMath.RotateRightLevelRight(Game.Controller.objectArray);
                 break;
             case Keyboard.Key.Up:
                 break;
@@ -49,6 +49,6 @@ public class Input
     {
         if (e.Delta > 0) { Wall.height++; }
         if (e.Delta < 0) { Wall.height--; }
-        Wall.height = Math.Clamp(Wall.height, 1, 4);
+        Wall.height = Math.Clamp(Wall.height, 2, 6);
     }
 }

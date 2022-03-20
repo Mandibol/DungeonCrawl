@@ -6,8 +6,7 @@ public abstract class Floor : GameObject
     public Floor(int Index) : base(Index)
     {
         Random rn = new Random();
-        floorheight = (rn.Next(4) + rn.Next(4)) / 2;
-        pixelPosition.Y -= floorheight;
+        floorheight = (rn.Next(5) + rn.Next(5)) / 2;
     }
 
     public override void Update()

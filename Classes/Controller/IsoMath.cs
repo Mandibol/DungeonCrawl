@@ -54,7 +54,11 @@ public static class IsoMath
         return new Vector2f(x, y);
     }
 
-
+    /// <summary>
+    /// Rotate and GameObject array 90 degrees to th right
+    /// </summary>
+    /// <param name="InputArray"> The GameObject Array you want Rotateted</param>
+    /// <returns>A new rotated Array</returns>
     public static GameObject[] RotateRightLevelRight(GameObject[] InputArray)
     {
         GameObject[] outputArray = new GameObject[InputArray.Length];
@@ -67,6 +71,7 @@ public static class IsoMath
                 outputArray[count] = InputArray[i];
                 if (outputArray[count] != null)
                 {
+                    //Update GameObject Positions
                     outputArray[count].gridIndex = count;
                     outputArray[count].gridPosition = IsoMath.GridPositionFromIndex(count);
                     outputArray[count].pixelPosition = IsoMath.PixelPositionFromGridPosition(outputArray[count].gridPosition);
@@ -77,6 +82,11 @@ public static class IsoMath
         return outputArray;
     }
 
+    /// <summary>
+    /// Rotate and GameObject array 90 degrees to the Left
+    /// </summary>
+    /// <param name="InputArray"> The GameObject Array you want Rotateted</param>
+    /// <returns> A new rotated Array</returns>
     public static GameObject[] RotateRightLevelLeft(GameObject[] InputArray)
     {
         GameObject[] outputArray = new GameObject[InputArray.Length];
@@ -89,6 +99,7 @@ public static class IsoMath
                 outputArray[count] = InputArray[i];
                 if (outputArray[count] != null)
                 {
+                    //Update GameObject Positions
                     outputArray[count].gridIndex = count;
                     outputArray[count].gridPosition = IsoMath.GridPositionFromIndex(count);
                     outputArray[count].pixelPosition = IsoMath.PixelPositionFromGridPosition(outputArray[count].gridPosition);
@@ -111,4 +122,6 @@ public static class IsoMath
         return (float)Math.Round(Math.Sqrt(c.X * c.X + c.Y * c.Y));
     }
 }
+
+
 

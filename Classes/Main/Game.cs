@@ -42,6 +42,7 @@ public class Game
     public static List<Level> LevelList { get { return levelList; } }
     public static Level CurrentLevel { get { return currentLevel; } set { currentLevel = value; } }
     public static Time DeltaTime { get { return deltaTime; } }
+    public static Time Time { get { return time; } }
     public static Texture TextureAtlas { get { return textureAtlas; } }
     public static int FrameRateLimit { get { return frameRateLimit; } }
     public static RenderWindow Window { get { return window; } }

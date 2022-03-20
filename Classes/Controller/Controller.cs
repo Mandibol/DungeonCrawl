@@ -10,14 +10,12 @@ public class Controller
 
     public GameObject[] staticArray;
     public GameObject[] objectArray;
-    public bool[] collisionArray;
     public Rotation rotation = Rotation.North;
 
     public Controller()
     {
         staticArray = new GameObject[Game.CurrentLevel.BaseLayer.Count];
         objectArray = new GameObject[Game.CurrentLevel.BaseLayer.Count];
-        collisionArray = new bool[Game.CurrentLevel.BaseLayer.Count];
 
         //Create a Array of Gameobjects from TerrainData
         List<int> baseLayer = Game.CurrentLevel.BaseLayer;
@@ -27,42 +25,33 @@ public class Controller
             switch (baseLayer[i])
             {
                 case 1:
-                    staticArray[i] = new Wall(i);
-                    collisionArray[i] = true;
+                    objectArray[i] = new Wall(i);
                     break;
                 case 9:
                     staticArray[i] = new Floor1(i);
-                    collisionArray[i] = false;
                     break;
                 case 10:
                     staticArray[i] = new Floor2(i);
-                    collisionArray[i] = false;
                     break;
                 case 11:
                     staticArray[i] = new Floor3(i);
-                    collisionArray[i] = false;
                     break;
                 case 12:
                     staticArray[i] = new Floor4(i);
-                    collisionArray[i] = false;
                     break;
                 case 13:
                     staticArray[i] = new Floor5(i);
-                    collisionArray[i] = false;
                     break;
                 case 14:
                     staticArray[i] = new Floor6(i);
-                    collisionArray[i] = false;
                     break;
                 case 15:
                     staticArray[i] = new Floor7(i);
                     objectArray[i] = new DoorRight(i);
-                    collisionArray[i] = true;
                     break;
                 case 16:
                     staticArray[i] = new Floor8(i);
                     objectArray[i] = new DoorLeft(i);
-                    collisionArray[i] = true;
                     break;
                 default:
                     break;
@@ -71,11 +60,9 @@ public class Controller
             {
                 case 17:
                     objectArray[i] = new Player(i, staticArray[i].floorheight);
-                    collisionArray[i] = true;
                     break;
                 case 25:
                     objectArray[i] = new Box(i, staticArray[i].floorheight);
-                    collisionArray[i] = true;
                     break;
                 default:
                     break;
@@ -86,9 +73,13 @@ public class Controller
 
     internal void Update()
     {
-        foreach (GameObject obj in staticArray)
+        //manage turn order
+
+        //state 
+        for (int i = 0; i < staticArray.Length; i++)
         {
-            if (obj != null) { obj.Update(); }
+            if (staticArray[i] != null) { staticArray[i].Update(); }
+            if (objectArray[i] != null) { objectArray[i].Update(); }
         }
 
         gridMouse.Update();
