@@ -1,7 +1,4 @@
-﻿using SFML.System;
-using SFML.Window;
-
-public enum Rotation
+﻿public enum Rotation
 {
     North, East, West, South, Length
 }
@@ -77,7 +74,7 @@ public class Controller
                     collisionArray[i] = true;
                     break;
                 case 25:
-                    objectArray[i] = new Box(i,staticArray[i].floorheight);
+                    objectArray[i] = new Box(i, staticArray[i].floorheight);
                     collisionArray[i] = true;
                     break;
                 default:

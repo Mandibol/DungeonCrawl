@@ -1,6 +1,5 @@
 ﻿using SFML.Graphics;
 using SFML.System;
-using SFML.Window;
 
 public class Renderer
 {
@@ -46,7 +45,7 @@ public class Renderer
         Text text = new Text("", fnt, 8);
         text.FillColor = Color.White;
         text.DisplayedString = Game.Controller.rotation.ToString();
-        text.Position = new Vector2f(0f,0f);
+        text.Position = new Vector2f(0f, 0f);
         window.Draw(text);
 
         //Display All

@@ -4,7 +4,7 @@ using SFML.Window;
 public class Input
 {
     private RenderWindow window = Game.Window;
-    
+
     public Input()
     {
         //Subscribe Methods to input events

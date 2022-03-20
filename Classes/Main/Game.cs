@@ -1,6 +1,6 @@
-﻿using SFML.System;
+﻿using SFML.Graphics;
+using SFML.System;
 using SFML.Window;
-using SFML.Graphics;
 
 /// <summary>
 /// A class setting up the game and managing the game loop
@@ -12,14 +12,14 @@ public class Game
     private static Time time;
 
     //USED for calcultaing position on grid
-    private static Vector2i gridSize = new Vector2i(32,32);
+    private static Vector2i gridSize = new Vector2i(32, 32);
     private static int gridCellWidth = 32;
     private static int gridCellHeight = 16;
-    private static Vector2i gridOffset = new Vector2i(512,64);
+    private static Vector2i gridOffset = new Vector2i(512, 64);
 
     //Window Settings
-    private static int frameRateLimit= 60;
-    private static Vector2u resolution = new Vector2u(1024,576);
+    private static int frameRateLimit = 60;
+    private static Vector2u resolution = new Vector2u(1024, 576);
     private static Vector2u pixelArtResolution = new Vector2u(1024, 576);
     private static VideoMode videoMode = new VideoMode(resolution.X, resolution.Y);
     private static RenderWindow window = new RenderWindow(videoMode, "Dungeon Crawl", Styles.Default);
@@ -37,13 +37,13 @@ public class Game
     public static int GridCellWidth { get { return gridCellWidth; } }
     public static int GridCellHeight { get { return gridCellHeight; } }
     public static Vector2i GridOffset { get { return gridOffset; } }
-    public static Renderer Renderer { get {return renderer;} }
+    public static Renderer Renderer { get { return renderer; } }
     public static Controller Controller { get { return controller; } }
     public static List<Level> LevelList { get { return levelList; } }
     public static Level CurrentLevel { get { return currentLevel; } set { currentLevel = value; } }
-    public static Time DeltaTime { get { return deltaTime;}}
+    public static Time DeltaTime { get { return deltaTime; } }
     public static Texture TextureAtlas { get { return textureAtlas; } }
-    public static int FrameRateLimit { get { return frameRateLimit;} }
+    public static int FrameRateLimit { get { return frameRateLimit; } }
     public static RenderWindow Window { get { return window; } }
     public static View WinView { get { return view; } }
 

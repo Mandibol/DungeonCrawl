@@ -3,6 +3,8 @@ using SFML.System;
 
 internal class Player : GameObject
 {
+    Vector2f a2 = new(1, 1);
+    Vector2f b2 = default;
     public Player(int i, int FloorHeight) : base(i, FloorHeight)
     {
         sprite = new Sprite(Game.TextureAtlas, new IntRect(64, 176, 32, 48));

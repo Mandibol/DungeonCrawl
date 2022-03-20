@@ -49,7 +49,7 @@ public class GridMouse : GameObject
 
     public override void Draw()
     {
-        
+
         //MouseMarker
         Vector2f mp = Game.Window.MapPixelToCoords(Mouse.GetPosition(Game.Window));
         foreach (var item in gridPositions)

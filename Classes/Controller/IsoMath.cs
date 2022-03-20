@@ -58,14 +58,14 @@ public static class IsoMath
     public static GameObject[] RotateRightLevelRight(GameObject[] InputArray)
     {
         GameObject[] outputArray = new GameObject[InputArray.Length];
-        int count= 0;
+        int count = 0;
         for (int x = 0; x < Game.GridSize.X; x++)
         {
-            for (int y = Game.GridSize.Y-1; y >= 0; y--)
+            for (int y = Game.GridSize.Y - 1; y >= 0; y--)
             {
                 int i = IsoMath.IndexFromGridPosition(new Vector2f(x, y));
                 outputArray[count] = InputArray[i];
-                if (outputArray[count] != null) 
+                if (outputArray[count] != null)
                 {
                     outputArray[count].gridIndex = count;
                     outputArray[count].gridPosition = IsoMath.GridPositionFromIndex(count);
@@ -81,7 +81,7 @@ public static class IsoMath
     {
         GameObject[] outputArray = new GameObject[InputArray.Length];
         int count = 0;
-        for (int x = Game.GridSize.X-1; x >=0; x--)
+        for (int x = Game.GridSize.X - 1; x >= 0; x--)
         {
             for (int y = 0; y < Game.GridSize.Y; y++)
             {
